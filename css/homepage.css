@@ -17,17 +17,17 @@ body {
 .txt_display {
     font-size: larger;
     margin: 0 auto;
-    padding: 10px 0;
+    padding: 20px 0;
 }
 
 .shortcuts {
     margin: 0 auto;
-    padding: 10px 0;
+    padding: 25px 0;
 }
 
 .search_bar {
     margin: 0 auto;
-    padding: 10px 0;
+    padding: 20px 0;
 }
 
 .personal {
@@ -44,12 +44,43 @@ body {
     flex-grow: 1;
     background-color: aquamarine;
     padding: 15px;
+    justify-content: center;
 }
 
 .temperature {
-    font-size: x-large;
+    font-size: 40px;
 }
 
 .weather_txt {
-    font-size: x-small;
+    font-size: 14px;
+}
+
+.card_container {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    background-color: darksalmon;
+    grid-gap: 20px;
+    justify-items: center;
+}
+
+.card {
+    width: 300px;
+    background-color: red;
+}
+
+.card_title {
+    padding: 5px;
+}
+
+.card_item {
+    display: block;
+    padding: 5px;
+    align-items: center;
+}
+
+.remove_link {
+    float: left;
+    margin-right: 5px;
 }
