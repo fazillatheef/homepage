@@ -1,6 +1,33 @@
+body {
+    margin: 0;
+}
+
 .top {
     display: flex;
     flex-direction: row;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 7;
+    background-color: beige;
+}
+
+.txt_display {
+    font-size: larger;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.shortcuts {
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.search_bar {
+    margin: 0 auto;
+    padding: 10px 0;
 }
 
 .personal {
@@ -8,18 +35,21 @@
     position: fixed;
     top: 0;
     right: 0;
-    padding: 10px;
+    margin: 10px;
 }
 
 .weather {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+    background-color: aquamarine;
+    padding: 15px;
 }
 
 .temperature {
-    font-size: larger;
+    font-size: x-large;
 }
 
 .weather_txt {
-    font-size: small;
+    font-size: x-small;
 }
