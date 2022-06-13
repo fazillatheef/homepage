@@ -1,0 +1,25 @@
+.top {
+    display: flex;
+    flex-direction: row;
+}
+
+.personal {
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+
+.weather {
+    display: flex;
+    flex-direction: column;
+}
+
+.temperature {
+    font-size: larger;
+}
+
+.weather_txt {
+    font-size: small;
+}

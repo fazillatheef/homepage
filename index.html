@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/homepage.css">
+</head>
+
+<body>
+    <div class="personal">
+        <button onClick="edit_links();">Edit</button>
+        <a href="#">Personal</a>
+    </div>
+    <div class="top">
+        <div class="weather">
+            <span class="temperature">17&#176;C</span>
+            <span class="weather_txt">Scattered clouds,(Feels like 16&#176;C)</span>
+        </div>
+        <div class="main">
+            <div class="shortcuts">
+                <a class="icon" href="#">Link1</a>
+                <a class="icon" href="#">Link1</a>
+            </div>
+            <div class="search_bar">
+                <form method="get" action="e.preventdefault();search_web();">
+                    <input type="text" id="search_txt">
+
+                    <input type="radio" name="search" id="google">
+                    <label id="lbl_google" for="google"></label>
+
+                    <input type="radio" name="search" id="bing">
+                    <label id="lbl_bing" for="bing"></label>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card_container">
+        <div class="card">
+            <div class="card_title">
+                <span>Main Links
+                    <button class="add_links" onClick="add_link();">+</button>
+                </span>
+            </div>
+            <div class="card_content">
+                <span>
+                    <a class="card_item" href="#">Link1</a>
+                    <button class="remove_link" onClick="remove_link();">x</button>
+                </span>
+                <a class="card_item" href="#">Link1</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
