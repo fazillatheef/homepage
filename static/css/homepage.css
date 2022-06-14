@@ -12,22 +12,25 @@ body {
     flex-direction: column;
     flex-grow: 7;
     background-color: beige;
+    text-align: center;
 }
 
 .txt_display {
     font-size: larger;
-    margin: 0 auto;
     padding: 20px 0;
 }
 
 .shortcuts {
-    margin: 0 auto;
-    padding: 25px 0;
+    padding: 20px 0;
 }
 
 .search_bar {
-    margin: 0 auto;
-    padding: 20px 0;
+    padding-top: 20px;
+}
+
+.search_select {
+    background-color: bisque;
+    padding: 10 0px;
 }
 
 .personal {
@@ -58,19 +61,38 @@ body {
 .card_container {
     display: grid;
 
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     background-color: darksalmon;
     grid-gap: 20px;
-    justify-items: center;
+    padding: 0 300px;
+    justify-content: center;
 }
 
 .card {
-    width: 300px;
+    width: fit-content;
     background-color: red;
+    border-radius: 10px;
+    height: fit-content
 }
 
 .card_title {
+    width: 300px;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+.empty_card {
+    width: 300px;
+    padding: 5px;
+    background-color: aquamarine;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.card_content {
     padding: 5px;
 }
 
@@ -83,4 +105,8 @@ body {
 .remove_link {
     float: left;
     margin-right: 5px;
+}
+
+#search_txt {
+    width: 500px;
 }

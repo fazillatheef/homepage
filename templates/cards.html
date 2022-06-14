@@ -1,0 +1,26 @@
+<div class="card_container">
+    {% for card in cards %}
+    <div class="card">
+        <div class="card_title">
+            <span>{{card['title']}}
+                {% if edit %}<button class="add_links" onClick="add_link();">+</button>{% endif %}
+            </span>
+        </div>
+        <div class="card_content">
+            {% for link in card['content'] %}
+            <span class="card_item">
+                <a class="card_link" href="{{link['address']}}">{{link['link']}}</a>
+                {% if edit %}<button class="remove_link" onClick="remove_link();">x</button>{% endif %}
+            </span>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+    {% if edit %}
+    <div class="card">
+        <div class="empty_card">
+            <button class="add_card" onClick="add_card();">+</button>
+        </div>
+    </div>
+    {% endif %}
+</div>

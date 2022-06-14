@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+</head>
+
+<body>
+    <div class="personal">
+        {% block editButton %}{% endblock %}
+        <a href="#">Personal</a>
+    </div>
+    <div class="top">
+        <div class="weather">
+            <span class="temperature">17&#176;C</span>
+            <span class="weather_txt">Scattered clouds,(Feels like 16&#176;C)</span>
+        </div>
+        <div class="main">
+            <div class="txt_display">
+                Shortcut 1
+            </div>
+            <div class="shortcuts">
+                <a class="icon" href="#">Link1</a>
+                <a class="icon" href="#">Link1</a>
+                {% if edit %}<button class="add_shortcut" onClick="add_shortcut();">+</button>{% endif %}
+            </div>
+            <div class="search_bar">
+                <form method="get" action="e.preventdefault();search_web();">
+                    <input type="text" id="search_txt">
+                    <div class="search_select">
+                        <input type="radio" name="search" id="google">
+                        <label id="lbl_google" for="google">Google</label>
+
+                        <input type="radio" name="search" id="bing">
+                        <label id="lbl_bing" for="bing">Bing</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% include 'cards.html' %}
+</body>
+
+</html>
