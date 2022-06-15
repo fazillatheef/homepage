@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -14,14 +15,14 @@
             <span class="temperature">17&#176;C</span>
             <span class="weather_txt">Scattered clouds,(Feels like 16&#176;C)</span>
         </div>
-        <div class="main">
+        <div class="main ">
             <div class="txt_display">
                 Shortcut 1
             </div>
             <div class="shortcuts">
                 <a class="icon" href="#">Link1</a>
                 <a class="icon" href="#">Link1</a>
-                {% if edit %}<button class="add_shortcut" onClick="add_shortcut();">+</button>{% endif %}
+                {% if edit %}<button class="add_links add_shortcut" onClick="add_shortcut();"></button>{% endif %}
             </div>
             <div class="search_bar">
                 <form method="get" action="e.preventdefault();search_web();">

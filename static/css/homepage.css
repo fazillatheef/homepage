@@ -2,6 +2,10 @@ body {
     margin: 0;
 }
 
+.border-test {
+    border: 1px solid black;
+}
+
 .top {
     display: flex;
     flex-direction: row;
@@ -22,6 +26,11 @@ body {
 
 .shortcuts {
     padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 .search_bar {
@@ -30,7 +39,7 @@ body {
 
 .search_select {
     background-color: bisque;
-    padding: 10 0px;
+    padding: 20px;
 }
 
 .personal {
@@ -71,17 +80,21 @@ body {
 
 .card {
     width: fit-content;
-    background-color: red;
+    background-color: beige;
     border-radius: 10px;
     height: fit-content
 }
 
 .card_title {
     width: 300px;
-    padding: 5px;
+    padding: 5px 10px;
     background-color: black;
     color: white;
     border-radius: 10px 10px 0 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .empty_card {
@@ -97,8 +110,10 @@ body {
 }
 
 .card_item {
-    display: block;
+    display: flex;
+    flex-direction: row;
     padding: 5px;
+    height: 20px;
     align-items: center;
 }
 
@@ -109,4 +124,25 @@ body {
 
 #search_txt {
     width: 500px;
+}
+
+.add_links {
+    background: url('../img/add_white.png');
+    background-size: 12px 12px;
+    height: 12px;
+    width: 12px;
+    border: 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+
+}
+
+.remove_link {
+    background: url('../img/remove_black.png');
+    background-size: 12px 12px;
+    background-color: transparent;
+    border: 0px;
+    height: 12px;
+    width: 12px;
+    background-repeat: no-repeat;
 }
