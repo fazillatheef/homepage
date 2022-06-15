@@ -1,10 +1,11 @@
 # homepage
 WIP.  
 To do  
-1. Add sqlite database to store the links  
+1. Add sqlite database to store the links  [done]
    a. Card  
    b. Links  
-   c. Shortcut  
+   c. Shortcut 
+   d. Images 
 3. Implement Ajax for add and remove links
 4. Image upload for shortcuts
 5. Implement Ajax for new cards
