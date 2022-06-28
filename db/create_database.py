@@ -1,5 +1,30 @@
 import sqlite3 as sql3
+import argparse
+
+argparser = argparse.ArgumentParser()
+argparser.add_argument("--delete","-d",action="store_true",default=False)
+args = argparser.parse_args()
+
 conn = sql3.connect("links.db")
+
+if args.delete:
+    conn.execute("""
+    DROP TABLE cards;
+    """)  
+
+    conn.execute("""
+    DROP TABLE links;
+    """) 
+
+
+    conn.execute("""
+    DROP TABLE images;
+    """) 
+
+    conn.execute("""
+    DROP TABLE shortcuts;
+    """)   
+
 conn.execute("""
 CREATE TABLE IF NOT EXISTS  cards (
     id  INTEGER PRIMARY KEY AUTOINCREMENT,
