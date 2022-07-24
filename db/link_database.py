@@ -5,7 +5,20 @@ class linkdb:
         self.conn = sql3.connect(path)
         self.conn.row_factory = sql3.Row
     def read_cards_links(self):
-        # returns a dict with cards and links
+        # returns a list with cards and links
+        # [
+        #   {
+        #       "title"  :<card name>
+        #       "content":[
+        #                   {
+        #                       "link"      :<Link Name>
+        #                       "address"   :<Url>
+        #                   },
+        #                   ... other links
+        #                 ]
+        #   },
+        #   ... other cards
+        # ]
         card_list = []
         card_cursor = self.conn.cursor()
         link_cursor = self.conn.cursor()
@@ -17,7 +30,7 @@ class linkdb:
                 break
             each_card["title"]=card_result["card_name"]
             each_card["content"] = []
-            links = link_cursor.execute(f'SELECT link_text,link from links where card_id={card_result["id"]}')
+            links = link_cursor.execute(f'SELECT link_text,link from links where card_id=:card_id',{"card_id" : card_result["id"]})
             while True:
                 link_result = links.fetchone()
                 each_link = {}
