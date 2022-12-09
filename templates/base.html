@@ -7,7 +7,7 @@
 
 <body>
     <div class="personal">
-        {% block editButton %}{% endblock %}
+        <!--Edit button-->
         <a href="#">Personal</a>
     </div>
     <div class="top">
@@ -22,7 +22,6 @@
             <div class="shortcuts">
                 <a class="icon" href="#">Link1</a>
                 <a class="icon" href="#">Link1</a>
-                {% if edit %}<button class="add_links add_shortcut" onClick="add_shortcut();"></button>{% endif %}
             </div>
             <div class="search_bar">
                 <form method="get" action="e.preventdefault();search_web();">

@@ -1,25 +1,39 @@
 <div class="card_container">
-    {% for card in cards %}
+    {% for group in groups %}
     <div class="card">
         <div class="card_title">
-            <div>{{card['title']}}</div>
-            {% if edit %}<button class="add_links" onClick="add_link();"></button>{% endif %}
+            <div>{{group.name}}        
+                <form method="post" action="/remove_group/{{ group.id }}">
+                    <input type="submit" value="Remove Group">
+                </form>
+            </div>
         </div>
         <div class="card_content">
-            {% for link in card['content'] %}
+            {% for link in group.links %}
             <div class="card_item">
-                {% if edit %}<button class="remove_link" onClick="remove_link();"></button>{% endif %}
-                <a class="card_link" href="{{link['address']}}">{{link['link']}}</a>
+                <form method="post" action="/remove_link/{{ link.id }}">
+                    <input type="submit" value="Remove">
+                </form>
+                <a class="card_link" href="{{link.url}}">{{link.text}}</a>
             </div>
             {% endfor %}
+            <form method="post" action="/add_link/{{ group.id }}">
+                <label for="text">Link Text:</label><br>
+                <input type="text" id="text" name="text"><br>
+                <label for="url">Link URL:</label><br>
+                <input type="text" id="url" name="url"><br>
+                <input type="submit" value="Submit">
+            </form>     
         </div>
     </div>
     {% endfor %}
-    {% if edit %}
     <div class="card">
         <div class="empty_card">
-            <button class="add_card" onClick="add_card();">+</button>
+            <form method="post" action="/create_group">
+                <label for="name">Group Name:</label><br>
+                <input type="text" id="name" name="name"><br>
+                <input type="submit" value="Submit">
+            </form>
         </div>
     </div>
-    {% endif %}
 </div>
