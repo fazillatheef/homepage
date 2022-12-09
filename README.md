@@ -22,8 +22,8 @@ A simple [flask](https://flask.palletsprojects.com/en/2.0.x/) server app that ca
 `git clone https://github.com/fazillatheef/homepage.git`
 
 ## Usage 
-`python web_server.py`
+flask run
 
-Then open [localhost:2020](http://localhost:2020) in the browser.
+Then open [localhost:5000](http://localhost:5000) in the browser.
 
 > *__Tip:__ Add the command in Windows scheduler to start the program after logging in*
