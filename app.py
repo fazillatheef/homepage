@@ -1,8 +1,14 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+
+for env_var in ['SQLALCHEMY_DATABASE_URI']:
+    if env_var in os.environ.keys():
+        app.config[env_var] = os.environ[env_var]
+    else:
+        raise ValueError("Environment variables not setup!!")
 
 db = SQLAlchemy(app)
 
@@ -29,6 +35,11 @@ with app.app_context():
 def index():
     groups = Group.query.all()
     return render_template('index.html', groups=groups)
+
+@app.route('/edit')
+def index_edit():
+    groups = Group.query.all()
+    return render_template('edit.html', groups=groups)
 
 @app.route('/create_group', methods=['POST'])
 def create_group():

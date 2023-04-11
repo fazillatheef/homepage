@@ -1,10 +1,10 @@
 # homepage
 WIP.  
 To do  
-1. Add sqlite database to store the links  [done]
+1. Add sqlite database to store the links  [done]  
    a. Card  
    b. Links  
-   c. Shortcut 
+   c. Shortcut   
    d. Images 
 3. Implement Ajax for add and remove links
 4. Image upload for shortcuts
@@ -22,7 +22,12 @@ A simple [flask](https://flask.palletsprojects.com/en/2.0.x/) server app that ca
 `git clone https://github.com/fazillatheef/homepage.git`
 
 ## Usage 
+Set environment variables
+```bash
+export SQLALCHEMY_DATABASE_URI=sqlite:///database.db
+export FLASK_DEBUG=true
 flask run
+```
 
 Then open [localhost:5000](http://localhost:5000) in the browser.
 

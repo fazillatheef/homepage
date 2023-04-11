@@ -2,11 +2,10 @@
     {% for group in groups %}
     <div class="card">
         <div class="card_title">
-            <div>{{group.name}}        
+                {{group.name}}        
                 <form method="post" action="/remove_group/{{ group.id }}">
                     <input type="submit" value="Remove Group">
                 </form>
-            </div>
         </div>
         <div class="card_content">
             {% for link in group.links %}
@@ -14,16 +13,24 @@
                 <form method="post" action="/remove_link/{{ link.id }}">
                     <input type="submit" value="Remove">
                 </form>
+                &nbsp;
                 <a class="card_link" href="{{link.url}}">{{link.text}}</a>
             </div>
             {% endfor %}
-            <form method="post" action="/add_link/{{ group.id }}">
-                <label for="text">Link Text:</label><br>
-                <input type="text" id="text" name="text"><br>
-                <label for="url">Link URL:</label><br>
-                <input type="text" id="url" name="url"><br>
-                <input type="submit" value="Submit">
-            </form>     
+            <div>
+                <form class="links" method="post" action="/add_link/{{ group.id }}">
+                    <div class="each_link">                
+                        <label class="link_text flex-item-right" for="text">Link Text:&nbsp;</label>
+                        <input class="link_addr" type="text" id="text" name="text">
+                    </div>
+                    <div class="each_link">                
+                        <label class="link_text flex-item-right" for="url">Link URL:&nbsp;</label>
+                        <input class="link_addr" type="text" id="url" name="url">
+                    </div>
+
+                    <input type="submit" value="Add Link">
+                </form> 
+            </div>    
         </div>
     </div>
     {% endfor %}

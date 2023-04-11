@@ -96,7 +96,6 @@ body {
     align-items: center;
     justify-content: space-between;
 }
-
 .empty_card {
     width: 300px;
     padding: 5px;
@@ -107,14 +106,36 @@ body {
 
 .card_content {
     padding: 5px;
+    display:flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.links{
+    display: flex;
+    flex-direction : column;
+}
+.each_link{
+    display:flex;
+    flex-direction: row;
+    margin-bottom:5px;
+}
+.link_addr,.link_text{
+    flex: 1 1 0;
+}
+.btn-add-link{
+    display: flex;
+    flex :1 1 0;
 }
 
+.flex-item-right{
+    text-align : right
+}
 .card_item {
     display: flex;
     flex-direction: row;
-    padding: 5px;
     height: 20px;
     align-items: center;
+    margin-bottom:5px;
 }
 
 .remove_link {
