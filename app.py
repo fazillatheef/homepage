@@ -17,7 +17,7 @@ class Group(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    links = db.relationship('Link', backref='group', lazy=True)
+    links = db.relationship('Link', cascade='all, delete', lazy=True)
 
 
 class Link(db.Model):
@@ -26,7 +26,7 @@ class Link(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(100), nullable=False)
     url = db.Column(db.String(200), nullable=False)
-    group_id = db.Column(db.Integer, db.ForeignKey('groups.id'), nullable=False)
+    group_id = db.Column(db.Integer, db.ForeignKey('groups.id'), nullable=False,back_populates="links")
 
 with app.app_context():
     db.create_all()
@@ -86,7 +86,7 @@ def add_link(group_id):
 def remove_link(link_id):
     try:
         link = Link.query.get(link_id)
-        link.group.links.remove(link)
+        #link.group.links.remove(link)
         db.session.delete(link)
         db.session.commit()
     except:
@@ -94,3 +94,6 @@ def remove_link(link_id):
         raise
 
     return redirect('/')
+
+if __name__ == "__main__":
+    app.run()
