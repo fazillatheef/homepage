@@ -26,7 +26,7 @@ class Link(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(100), nullable=False)
     url = db.Column(db.String(200), nullable=False)
-    group_id = db.Column(db.Integer, db.ForeignKey('groups.id'), nullable=False,back_populates="links")
+    group_id = db.Column(db.Integer, db.ForeignKey('groups.id'), nullable=False)
 
 with app.app_context():
     db.create_all()
@@ -53,7 +53,7 @@ def create_group():
         db.session.rollback()
         raise
 
-    return redirect('/')
+    return redirect('/edit')
 
 @app.route('/remove_group/<int:group_id>', methods=['POST'])
 def remove_group(group_id):
@@ -65,7 +65,7 @@ def remove_group(group_id):
         db.session.rollback()
         raise
 
-    return redirect('/')
+    return redirect('/edit')
 
 @app.route('/add_link/<int:group_id>', methods=['POST'])
 def add_link(group_id):
@@ -81,19 +81,19 @@ def add_link(group_id):
         db.session.rollback()
         raise
 
-    return redirect('/')
+    return redirect('/edit')
+
 @app.route('/remove_link/<int:link_id>', methods=['POST'])
 def remove_link(link_id):
     try:
         link = Link.query.get(link_id)
-        #link.group.links.remove(link)
         db.session.delete(link)
         db.session.commit()
     except:
         db.session.rollback()
         raise
 
-    return redirect('/')
+    return redirect('/edit')
 
 if __name__ == "__main__":
     app.run()

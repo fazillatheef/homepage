@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block cards %}
+<div class="card_container">
+    {% for group in groups %}
+    <div class="card">
+        <div class="card_title">
+                {{group.name}}
+                {%block remove_group scoped%}        
+                {% endblock %}
+        </div>
+        <div class="card_content">
+            {% for link in group.links %}
+            <div class="card_item">
+                {% block remove_link scoped%}
+                {% endblock%}
+                <a class="card_link" href="{{link.url}}">{{link.text}}</a>
+            </div>
+            {% endfor %}
+            {% block addlinks scoped%}{{super.super()}}{% endblock %}
+            
+        </div>
+    </div>
+    {% endfor %}
+    {% block new_card scoped%}
+    {% endblock %}
+</div>
+{% endblock %}

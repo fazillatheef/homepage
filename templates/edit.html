@@ -1,2 +1,40 @@
-{% extends "base.html" %}
+{% extends "base_with_cards.html" %}
 {% block editButton %}<button onClick="location.href='{{url_for('index')}}';">Exit Edit</button>{% endblock %}
+{%block remove_group%}        
+<form method="post" action="/remove_group/{{ group.id }}">
+    <input type="submit" value="Remove Group">
+</form>
+{% endblock %}
+{% block remove_link %}
+<form method="post" action="/remove_link/{{ link.id }}">
+  <input type="submit" value="Remove">
+</form>
+&nbsp;
+{% endblock%}
+{% block addlinks %}
+<div>
+  <form class="links" method="post" action="/add_link/{{ group.id }}">
+      <div class="each_link">                
+          <label class="link_text flex-item-right" for="text">Link Text:&nbsp;</label>
+          <input class="link_addr" type="text" id="text" name="text">
+      </div>
+      <div class="each_link">                
+          <label class="link_text flex-item-right" for="url">Link URL:&nbsp;</label>
+          <input class="link_addr" type="text" id="url" name="url">
+      </div>
+
+      <input type="submit" value="Add Link">
+  </form> 
+</div> 
+{% endblock %}
+{% block new_card scoped%}
+<div class="card">
+    <div class="empty_card">
+        <form method="post" action="/create_group">
+            <label for="name">Group Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+{% endblock %}
