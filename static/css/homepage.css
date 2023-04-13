@@ -119,17 +119,19 @@ body {
     flex-direction: row;
     margin-bottom:5px;
 }
-.link_addr,.link_text{
-    flex: 1 1 0;
+.link_addr{
+    flex-grow: 1 ;
+    min-width: 0; 
+}
+.link_text{
+    white-space: nowrap; 
+    text-align : right
 }
 .btn-add-link{
     display: flex;
     flex :1 1 0;
 }
 
-.flex-item-right{
-    text-align : right
-}
 .card_item {
     display: flex;
     flex-direction: row;

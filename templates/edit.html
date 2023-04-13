@@ -15,11 +15,11 @@
 <div>
   <form class="links" method="post" action="/add_link/{{ group.id }}">
       <div class="each_link">                
-          <label class="link_text flex-item-right" for="text">Link Text:&nbsp;</label>
+          <label class="link_text" for="text">Link Text:&nbsp;</label>
           <input class="link_addr" type="text" id="text" name="text">
       </div>
       <div class="each_link">                
-          <label class="link_text flex-item-right" for="url">Link URL:&nbsp;</label>
+          <label class="link_text" for="url">Link URL:&nbsp;</label>
           <input class="link_addr" type="text" id="url" name="url">
       </div>
 
@@ -29,11 +29,13 @@
 {% endblock %}
 {% block new_card %}
 <div class="card">
-    <div class="empty_card">
-        <form method="post" action="/create_group">
-            <label for="name">Group Name:</label><br>
-            <input type="text" id="name" name="name"><br>
-            <input type="submit" value="Submit">
+    <div>
+        <form class="empty_card links" method="post" action="/create_group">
+            <div class="each_link">
+                <label class="link_text " for="name">Group Name:&nbsp;</label>
+                <input class="link_addr" type="text" id="name" name="name"/>
+            </div>
+            <input type="submit" value="Add group">
         </form>
     </div>
 </div>

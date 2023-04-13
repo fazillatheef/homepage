@@ -13,7 +13,7 @@
             <div class="card_item">
                 {% block remove_link scoped%}
                 {% endblock%}
-                <a class="card_link" href="{{link.url}}">{{link.text}}</a>
+                <a class="card_link" target="_blank" href="{{link.url}}">{{link.text}}</a>
             </div>
             {% endfor %}
             {% block addlinks scoped%}{{super.super()}}{% endblock %}
