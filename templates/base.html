@@ -22,11 +22,6 @@
             </div>
             <div class="shortcuts">
                 {% for shortcut in shortcuts %}
-                    {% block deleteShortcut scoped%}
-                        <form method="post" action="/remove_shortcut/{{ shortcut.id }}">
-                            <input type="submit" value="Remove">
-                        </form>
-                    {% endblock %}
                     <a href="{{shortcut.url}}">{{shortcut.text}}</a>&nbsp;
                 {% endfor %}
                 {% block editShortcut %}{% endblock %}
