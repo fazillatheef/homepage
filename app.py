@@ -41,17 +41,20 @@ with app.app_context():
 @app.route('/')
 def index():
     groups = Group.query.all()
-    return render_template('index.html', groups=groups)
+    shortcuts = Shortcut.query.all()
+    return render_template('index.html', groups=groups,shortcuts=shortcuts)
 
 @app.route('/edit')
 def index_edit():
     groups = Group.query.all()
-    return render_template('edit.html', groups=groups)
+    shortcuts = Shortcut.query.all()
+    return render_template('edit.html', groups=groups, shortcuts = shortcuts)
 
 @app.route('/add_shortcut', methods=['POST','GET'])
 def add_shortcut():
     if request.method == 'GET':
-        return render_template('add_shortcut.html')
+        shortcuts = Shortcut.query.all()
+        return render_template('add_shortcut.html',shortcuts=shortcuts)
     elif request.method == 'POST':
         text = request.form['text']
         url = request.form['url']
@@ -60,8 +63,22 @@ def add_shortcut():
             db.session.commit()
         except:
             db.session.rollback()
-            raise        
-        return render_template('edit.html')
+            raise   
+        shortcuts = Shortcut.query.all()     
+        return render_template('add_shortcut.html',shortcuts=shortcuts)
+
+@app.route('/remove_shortcut/<int:shortcut_id>', methods=['POST'])
+def remove_shortcut(shortcut_id):
+    try:
+        shortcut = Shortcut.query.get(shortcut_id)
+        db.session.delete(shortcut)
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
+
+    shortcuts = Shortcut.query.all()     
+    return render_template('add_shortcut.html',shortcuts=shortcuts)
 
 @app.route('/create_group', methods=['POST'])
 def create_group():

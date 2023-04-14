@@ -6,7 +6,10 @@
 </head>
 
 <body>
-  <div class="card_content" style="width:500px;">
+  <div style="width:500px;">
+    <div class="each_link">
+      <button onclick="location.href='{{url_for('index_edit')}}';">Back</button>
+    </div>
     <form class="links" method="post" action="/add_shortcut">
       <div class="each_link">
         <label class="link_text" for="text">Link Text:&nbsp;</label>
@@ -19,6 +22,14 @@
 
       <input type="submit" value="Add Shortcut">
     </form>
+    <div class="each_link">
+      {% for shortcut in shortcuts %}
+      <form method="post" action="/remove_shortcut/{{ shortcut.id }}">
+        <input type="submit" value="Remove">
+      </form>
+      <a href="{{shortcut.url}}">{{shortcut.text}}</a>&nbsp;
+      {% endfor %}
+    </div>
   </div>
 </body>
 

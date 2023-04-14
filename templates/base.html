@@ -21,8 +21,14 @@
                 Shortcut 1
             </div>
             <div class="shortcuts">
-                <a class="icon" href="#">Link1</a>
-                <a class="icon" href="#">Link1</a>
+                {% for shortcut in shortcuts %}
+                    {% block deleteShortcut scoped%}
+                        <form method="post" action="/remove_shortcut/{{ shortcut.id }}">
+                            <input type="submit" value="Remove">
+                        </form>
+                    {% endblock %}
+                    <a href="{{shortcut.url}}">{{shortcut.text}}</a>&nbsp;
+                {% endfor %}
                 {% block editShortcut %}{% endblock %}
             </div>
             <div class="search_bar">
