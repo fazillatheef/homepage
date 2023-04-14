@@ -2,6 +2,13 @@ body {
     margin: 0;
 }
 
+.personal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 10px;
+}
+
 .border-test {
     border: 1px solid black;
 }
@@ -9,6 +16,23 @@ body {
 .top {
     display: flex;
     flex-direction: row;
+}
+
+.weather {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: aquamarine;
+    padding: 15px;
+    justify-content: center;
+}
+
+.temperature {
+    font-size: 40px;
+}
+
+.weather_txt {
+    font-size: 14px;
 }
 
 .main {
@@ -42,30 +66,7 @@ body {
     padding: 20px;
 }
 
-.personal {
 
-    position: fixed;
-    top: 0;
-    right: 0;
-    margin: 10px;
-}
-
-.weather {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    background-color: aquamarine;
-    padding: 15px;
-    justify-content: center;
-}
-
-.temperature {
-    font-size: 40px;
-}
-
-.weather_txt {
-    font-size: 14px;
-}
 
 .card_container {
     display: grid;

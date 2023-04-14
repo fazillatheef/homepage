@@ -28,6 +28,13 @@ class Link(db.Model):
     url = db.Column(db.String(200), nullable=False)
     group_id = db.Column(db.Integer, db.ForeignKey('groups.id'), nullable=False)
 
+class Shortcut(db.Model):
+    __tablename__ = 'shortcuts'
+
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(100), nullable=False)
+    url = db.Column(db.String(200), nullable=False)
+
 with app.app_context():
     db.create_all()
 
@@ -40,6 +47,21 @@ def index():
 def index_edit():
     groups = Group.query.all()
     return render_template('edit.html', groups=groups)
+
+@app.route('/add_shortcut', methods=['POST','GET'])
+def add_shortcut():
+    if request.method == 'GET':
+        return render_template('add_shortcut.html')
+    elif request.method == 'POST':
+        text = request.form['text']
+        url = request.form['url']
+        try:
+            db.session.add(Shortcut(text=text, url=url))
+            db.session.commit()
+        except:
+            db.session.rollback()
+            raise        
+        return render_template('edit.html')
 
 @app.route('/create_group', methods=['POST'])
 def create_group():

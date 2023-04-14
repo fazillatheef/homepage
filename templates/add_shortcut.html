@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+</head>
+
+<body>
+  <div class="card_content" style="width:500px;">
+    <form class="links" method="post" action="/add_shortcut">
+      <div class="each_link">
+        <label class="link_text" for="text">Link Text:&nbsp;</label>
+        <input class="link_addr" type="text" id="text" name="text">
+      </div>
+      <div class="each_link">
+        <label class="link_text" for="url">Link URL:&nbsp;</label>
+        <input class="link_addr" type="text" id="url" name="url">
+      </div>
+
+      <input type="submit" value="Add Shortcut">
+    </form>
+  </div>
+</body>
+
+</html>
